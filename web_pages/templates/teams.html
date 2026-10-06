@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Teams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teams.css') }}">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="/main_page">Home</a>
+        </div>
+        <div>
+            <a href="{{'/teams'}}">Teams</a>
+            <a href="{{'/players'}}">Players</a>
+            <a href="/logout">Log out</a>
+        </div>
+    </header>
+    <main>
+        <h1>NBA Teams</h1>
+        <ul>
+            {% for team in teams %}
+                <li>
+                    <a href="/teams/{{ team['Abbreviation'] }}">
+                        {{ team['Team'] }} ({{ team['Abbreviation'] }})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
